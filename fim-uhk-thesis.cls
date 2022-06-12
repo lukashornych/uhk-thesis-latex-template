@@ -243,6 +243,7 @@
 %Vyber fakulty / faculty selection TODO
 \newcommand{\set@faculty}[3]{%
  \naselfalse
+ % TODO WRITER: enter name faculty
  \ifEqString{#1}{FIM}{Fakulta informatiky a managementu}{\@fim@CS}%
  \ifEqString{#1}{FIM}{Fakulta informatiky a managementu}{\@fim@SK}%
  \ifEqString{#1}{FIM}{Faculty of Informatics and Management}{\@fim@EN}%
@@ -258,6 +259,7 @@
 %Vyber ustavu / department selection
 \newcommand{\set@department}[3]{%
  \naselfalse
+ % TODO WRITER: enter name of department
  \ifEqString{#1}{KIT}{Katedra informatiky a kvantitativních metod}{\@department@CS}
  \ifEqString{#1}{KIT}{Katedra informatiky a kvantitativních metod}{\@department@SK}
  \ifEqString{#1}{KIT}{Department of Information Technology}{\@department@EN}
