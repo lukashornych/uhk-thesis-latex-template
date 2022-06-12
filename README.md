@@ -139,4 +139,4 @@ Book source:
 
 ## Contributions
 
-Feel free to submit PRs with fixes or new features, but remember, the goal is to make it easy to write theses in Latex without any difficult installation and configuration.
+PRs with fixes or new features are welcome, but remember, the goal is to make it easy to write theses in Latex without any difficult installation and configuration.
