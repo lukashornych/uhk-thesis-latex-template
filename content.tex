@@ -1,0 +1,108 @@
+\section{Úvod}
+
+% TODO WRITER: text
+
+Zde vysvětlit problémovou situaci a otázky, které se budou v bakalářské/diplomové práci řešit.
+
+\section{Cíl práce}
+
+% TODO WRITER: text
+
+Smysl a účel, výzkumné otázky.
+
+\section{Metodika zpracování}
+
+% TODO WRITER: text
+
+Cíle, hypotézy/ výzkumné otázky, způsob hledání odpovědí na výzkumné otázky včetně metodiky vlastního výzkumu/šetření, literární rešerše.
+
+\section{Vlastní text práce}
+
+% TODO WRITER: text
+
+Vlastní řešení dokládá student zpravidla v několika kapitolách. Podle charakteru práce musí student uvážit, zda informace
+netextové povahy (data, tabulky, obrázky atd.) bude uvádět přímo v textu, nebo je zařadí až za celou práci ve formě příloh, či bude kombinovat oba způsoby.
+Více podrobností viz Metodické pokyny pro vypracování bakalářských a diplomových prací (zveřejňované formou výnosů děkana)
+a v kurzu MES – Metodologický seminář.
+
+	\subsection{Podkapitola}
+
+	Text podkapitoly.
+
+	Následuje ukázka nějakého seznamu:
+	\begin{itemize}
+		\item fotografie/avatar,
+		\item kategorizační štítky,
+		\item popisek.
+	\end{itemize}
+
+		\subsubsection{Podpodkapitola}
+
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ornare diam, id consequat diam.
+
+			\nlparagraph{Paragraf}
+
+			\noindent Ukázka prvního odstavce v paragrafu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ornare diam, id consequat diam.
+
+			Následuje použití citací: Citace \cite{html_hypertext_markup_language}, \cite{hibernate_docs}, \cite{ddd_quickly}.
+			Použití zkratek se rozděluje na první použítí a další použití: první použití \firstac{URL} a další použítí \ac{URL}.
+
+			Použití obrázku je jednoduché, zadáme název souboru, šířku, popisek a zdroj:
+
+			\cntcapfigure{rovnovaha_paka}{8cm}{Páka rovnováhy vzhledu.}{\cite{vizualni_rovnovaha}}
+
+			V případně, že autor je i autor obrázku:
+
+			\cntcapfigure{uhk}{\linewidth}{Toto je UHK.}{[autor]}
+
+			Blok kódu může vypadat takto:
+
+			\begin{codeblock}
+				\begin{verbatim}
+@Mapper
+public interface AccountDao {
+  @Select({
+    "select *",
+    "from " + Account.TABLE_NAME,
+    "where email = #{email}"
+  })
+  Optional<Account> findByEmail(String email);
+}
+				\end{verbatim}
+				\captionsource{Ukázka bloku kódu.}{[autor]}
+			\end{codeblock}
+
+			Tabulka zas může vypadat takto:
+
+			\begin{table}[hbt!]
+				\captionsource{Ukázková tabulka.}{[autor]}
+				\centering
+				\begin{tabular}{| l | r | r | r | }
+					\hline
+					&        psnr &      ssim &      doba  \\
+					model &       (db)    &           & gen. (s) \\
+					\hline
+					bik. int. & 28.3155 & 0.8566 & 0.0322 \\
+					nn1000    & 30.1461 & 0.9043 & 0.8109 \\
+					nn1001    & 30.0324 & 0.9023 & 0.7486 \\
+					nn1002    & \textbf{30.1886} & \textbf{0.9046} & 1.1731 \\
+					nn1003    & 30.0390 & 0.9030 & 1.1320 \\
+					nn1004    & 24.9772 & 0.7172 & 4.4367 \\
+					nn1005    & 26.1629 & 0.8004 & 4.0475 \\
+					nn1006    & 27.9129 & 0.8438 & 4.0683 \\
+					nn1007    & 27.5834 & 0.8360 & 4.2082 \\
+					\hline
+				\end{tabular}
+			\end{table}
+
+			\newpage
+
+			Další text
+
+\section{Závěry a doporučení}
+
+% TODO WRITER: text
+
+Kritická diskuze nad výsledky, ke kterým autor dospěl (soulad výsledků  literaturou či předpoklady;
+výsledky a okolnosti, které zvláště ovlivnily předkládanou práci atd.). Je vhodné naznačit i případné další
+(popř. alternativní) možnosti zkoumání dané problematiky a otevřené problémy pro další studium.

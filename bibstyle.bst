@@ -9,7 +9,7 @@
 %% merlin.mbs  (with options: `tail,exlang,lang,vonx,nm-rev,jnrlst,aunm-semi,nmlm,x3,m3,atit-u,vnum-nr,volp-sp,jwdpg,pp-last,jwdvol,num-xser,ser-vol,ser-ed,pg-bk,add-pub,isbn,issn,doi,edpar,edby,blk-tit,au-col,èe¹tina,pp,and-xcom,xand,eprint,biburl,url-nl,nfss,,{}')
 %% ----------------------------------------
 %% *** Czech style CSN ISO 690 ***
-%% 
+%%
 %% Copyright 1994-2004 Patrick W Daly
 %% Copyright 2011 David Madle
  % ===============================================================
@@ -69,6 +69,7 @@ ENTRY
     url
     volume
     year
+    urlvisited
   }
   {}
   { label }
@@ -607,6 +608,14 @@ FUNCTION {format.title}
     }
   if$
 }
+FUNCTION {format.urlvisited}
+{ urlvisited "urlvisited" bibinfo.check
+  duplicate$ empty$ 'skip$
+    {
+        "[online]. [cit. " swap$ * "]" *
+    }
+  if$
+}
 FUNCTION {output.bibitem}
 { newline$
   "\bibitem{" write$
@@ -1061,6 +1070,22 @@ FUNCTION {format.organization.address}
 { organization "organization" bibinfo.check format.org.or.pub
 }
 
+FUNCTION {webarticle}
+{ output.bibitem
+  format.authors "author" output.check
+  new.sentence
+  format.title "title" output.check
+  journal
+  "journal" bibinfo.check
+  emphasize
+  "journal" output.check
+  format.date "year" output.check
+  new.sentence
+  format.urlvisited "urlvisited" output.check
+  new.sentence
+  fin.entry
+  write.url
+}
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
@@ -1578,7 +1603,7 @@ FUNCTION {begin.bib}
   "\providecommand{\biburl}[1]{\url{#1}}"
 %   "\providecommand{\biburl}[1]{#1}"
   write$ newline$
-  "\providecommand{\urlprefix}{Available from: }"
+  "\providecommand{\urlprefix}{Dostupné z: }"
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$

@@ -162,7 +162,7 @@
 \def\@authorfield@EN{Field of study}
 \def\@annotation@CS{Anotace}
 \def\@annotation@SK{Anotace}
-\def\@annotation@EN{Anotation}
+\def\@annotation@EN{Annotation}
 \def\@keywords@CS{Klíčová slova}
 \def\@keywords@SK{Kľúčové slová}
 \def\@keywords@EN{Keywords}
@@ -258,8 +258,8 @@
 %Vyber ustavu / department selection
 \newcommand{\set@department}[3]{%
  \naselfalse
- \ifEqString{#1}{KIT}{Katedra Informačních Technologií}{\@department@CS}
- \ifEqString{#1}{KIT}{Katedra Informačních Technologií}{\@department@SK}
+ \ifEqString{#1}{KIT}{Katedra informatiky a kvantitativních metod}{\@department@CS}
+ \ifEqString{#1}{KIT}{Katedra informatiky a kvantitativních metod}{\@department@SK}
  \ifEqString{#1}{KIT}{Department of Information Technology}{\@department@EN}
  \ifEqString{#1}{DEF}{#2}{\@department@CS}
  \ifEqString{#1}{DEF}{#2}{\@department@SK}
@@ -294,7 +294,7 @@
 %-----------------------------------------------------------------------------
 % Projectinfo - parametrizace sablony / template parameters
 %-----------------------------------------------------------------------------
-%Parametry 
+%Parametry
 \define@key{projinfo}{title.cs}{\global\def\@title@CS{#1}}
 \define@key{projinfo}{title.en}{\global\def\@title@EN{#1}}
 \define@key{projinfo}{faculty.cs}{\def\@faculty@CS{#1}}
@@ -328,19 +328,19 @@
 %Vychozi hodnoty / Default values
 \setkeys{projinfo}{
   title.cs=Název práce (česky),
-  title.en=Název práce (anglicky), 
-  project=BP, 
-  department=KIT, 
-  declaration=, 
-  annotation.cs=, 
-  annotation.en=, 
-  keywords.cs=, 
+  title.en=Název práce (anglicky),
+  project=BP,
+  department=KIT,
+  declaration=,
+  annotation.cs=,
+  annotation.en=,
+  keywords.cs=,
   keywords.en=,
-  author.name=Jméno, 
-  author.surname=Příjmení, 
-  author.field=, 
+  author.name=Jméno,
+  author.surname=Příjmení,
+  author.field=,
   supervisor.name=Jméno,
-  supervisor.surname=Příjmení, 
+  supervisor.surname=Příjmení,
   department.cs=,
   department.en=,
   title.length=,
@@ -416,46 +416,47 @@
 \newcommand\makeannotation{%
 \thispagestyle{empty}\null%
 
-\ifczech
 \mktxt@b{16}{\@annotation@CS}\noindent\@tannotation@CS
-\else
-  \ifslovak
-    \mktxt@b{16}{\@annotation@SK}\noindent\@tannotation@CS
-  \else
-    \mktxt@b{16}{\@annotation@EN}\noindent\@tannotation@EN
-  \fi
-\fi
 
-\vspace{5cm}
+\vspace{1cm}
 
-\iftoggle{czech_used}{
-    \mktxt@b{16}{\@annotation@EN}
-    \vspace{5mm}
-        \mktxtc{14}{\@titletitle@EN: \@title@EN}
-    \vspace{5mm}
-    \noindent\@tannotation@EN
-}{
-  \ifslovak
-    \mktxt@b{16}{\@annotation@EN}
-        \noindent\mktxtc{14}{\@title@EN}
-        \mbox{}
-    \noindent\@tannotation@EN
-  \else
-    \ifenslovak
-      \mktxt@b{16}{\@annotation@SK}
-        \noindent\mktxtc{14}{\@title@EN}
-        \mbox{}
-      \noindent\@tannotation@CS
-    \else
-      \mktxt@b{16}{\@annotation@CS}
-        \noindent\mktxtc{14}{\@title@EN}
-        \mbox{}
-      \noindent\@tannotation@CS
-    \fi
-  \fi
-}
+\mktxt@b{16}{\@annotation@EN}
+\vspace{0.75cm}
+\mktxt@b{14}{Title: \@title@EN}
+\vspace{0.75cm}
+\noindent\@tannotation@EN
 
-\vfill
+\vspace{2cm}
+
+% do not want english annotaion
+%\iftoggle{czech_used}{
+%    \mktxt@b{16}{\@annotation@EN}
+%    \vspace{5mm}
+%        \mktxtc{14}{\@titletitle@EN: \@title@EN}
+%    \vspace{5mm}
+%    \noindent\@tannotation@EN
+%}{
+%  \ifslovak
+%    \mktxt@b{16}{\@annotation@EN}
+%        \noindent\mktxtc{14}{\@title@EN}
+%        \mbox{}
+%    \noindent\@tannotation@EN
+%  \else
+%    \ifenslovak
+%      \mktxt@b{16}{\@annotation@SK}
+%        \noindent\mktxtc{14}{\@title@EN}
+%        \mbox{}
+%      \noindent\@tannotation@CS
+%    \else
+%      \mktxt@b{16}{\@annotation@CS}
+%        \noindent\mktxtc{14}{\@title@EN}
+%        \mbox{}
+%      \noindent\@tannotation@CS
+%    \fi
+%  \fi
+%}
+
+%\vfill
 
 % \ifczech
 % \mktxt@b{16}{\@keywords@CS}\noindent\@tkeywords@CS
@@ -466,7 +467,7 @@
 %     \mktxt@b{16}{\@keywords@EN}\noindent\@tkeywords@EN
 %   \fi
 % \fi
-
+%
 % \vfill
 
 % \iftoggle{czech_used}{
@@ -513,13 +514,21 @@
   \mktxt@b{16}{\ifczech\@tdecl@CS\else\@tdecl@EN\fi}
 \fi
 
-\noindent\@declaration
+\@declaration
 
-  \begin{flushright}
-      \makebox[4cm]{\dotfill} \\
-      \@author\\
-      \@date
-  \end{flushright}
+\vspace{2cm}
+
+\noindent\begin{minipage}{0.5\textwidth}
+    \begin{flushleft}
+        V Hradci Králové dne \@date
+    \end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \centering
+        \@author
+    \end{flushright}
+\end{minipage}
 
 \newpage
 \thispagestyle{empty}%
@@ -535,14 +544,10 @@
 \else
   \mktxt@b{16}{\ifczech\@tackn@CS\else\@tackn@EN\fi}
 \fi
-\noindent\@acknowledgment
+\@acknowledgment
 \fi
 
 %===================================================
-
-\newpage
-\thispagestyle{empty}%
-\mbox{}
 
 \newpage
 
@@ -565,7 +570,7 @@
 \fontfamily{qhv}\selectfont%
 
 
-  
+
 \begin{center}
     \ifczech
         \noindent\hspace{-34.0pt}\mktxtc{14}{\@uhk@CS}
@@ -576,9 +581,9 @@
     \ifenglish
       \noindent\hspace{-34.0pt}\mktxtc{14}{\@uhk@EN}
     \fi
-    
+
     \vspace{5.6mm}
-    
+
     \ifczech
         \noindent\hspace{-34.0pt}\mktxtc{14}{\@fim@CS}
     \fi
@@ -588,9 +593,9 @@
     \ifenglish
       \noindent\hspace{-34.0pt}\mktxtc{14}{\@fim@EN}
     \fi
-    
+
     \vspace{5.6mm}
-    
+
     \ifczech
         \noindent\hspace{-34.0pt}\mktxtc{14}{\@departmentname@CS}
     \fi
@@ -600,9 +605,9 @@
     \ifenglish
       \noindent\hspace{-34.0pt}\mktxtc{14}{\@departmentname@EN}
     \fi
-    
+
     \vspace{6.3cm}
-    
+
     \ifczech
       \noindent\hspace{-34.0pt}\mktxtc{14}{\@title@CS}
     \fi
@@ -612,7 +617,7 @@
     \ifenglish
       \noindent\hspace{-34.0pt}\mktxtc{14}{\@title@EN}
     \fi
-    
+
     \ifczech
       \noindent\hspace{-34.0pt}\mktxtcn{14}{\@projecttype@CS}
     \fi
@@ -622,7 +627,7 @@
     \ifenglish
       \noindent\hspace{-34.0pt}\mktxtcn{14}{\@projecttype@EN}
     \fi
-    
+
     \enlargethispage{5.1\baselineskip}
 \end{center}
 
@@ -634,7 +639,7 @@
 \vspace{2cm}
 
 \mktxtcn{12}{\ifslovak\@supervisor@SK\else\ifczech\@supervisor@CS\else\@supervisor@EN\fi\fi: \get@supervisor}
-  
+
 \vfill
 \noindent\mktxtcn{12}{Hradec Králové \hfill \@year\hspace{5.0pt}~}
 
@@ -789,7 +794,7 @@
 %
 \csdoublequoteson
 
-% Zarovnání v seznamu typu description 
+% Zarovnání v seznamu typu description
 % Alignment in description list
 % http://tex.stackexchange.com/questions/7008/change-hanging-indent-in-description-list
 \makeatletter
@@ -860,9 +865,14 @@
 %\fi
 
 \ifczechslovak
-  \renewcommand{\lstlistingname}{Výpis} %Výpis místo Listing
+  \renewcommand{\lstlistingname}{Ukázka kódu} %Výpis místo Listing
+  \renewcommand{\lstlistlistingname}{Seznam ukázek kódů}
 \fi
 
+\floatstyle{plain}
+\newfloat{codeblock}{h}{lop}
+\floatname{codeblock}{Ukázka kódu}
+\newcommand{\listofcodeblocks}{\listof{codeblock}{Seznam ukázek kódů}}
 
 % BEGIN Jan Pluskal (ipluskal) listings
 
@@ -879,7 +889,8 @@
   columns=fullflexible,
   showstringspaces=false,
   commentstyle=\color{gray}\upshape,
-  captionpos=b
+  captionpos=b,
+  tabsize=2
 }
 
 \lstdefinestyle{csh}{language=[Sharp]C,
@@ -960,6 +971,26 @@
 % Sloupec zarovnaný vlevo s pevnou šířkou
 % Left aligned column with a fixed width
 \newcolumntype{L}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+
+% Přehození vypisování zkratek
+\newcommand{\firstac}[1]{\acs{#1} (\acl{#1})}
+%\acsetup{first-style=reversed}
+
+\newcommand*{\captionsource}[2]{%
+    \caption[{#1}]{%
+    #1 Zdroj: #2%
+    }%
+}
+
+\newcommand{\cntcapfigure}[4]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#2]{images/#1}\hfill
+        \captionsource{#3}{#4}
+    \end{figure}
+}
+
+\newcommand{\nlparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
 \endinput
 %%
