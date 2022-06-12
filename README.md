@@ -5,6 +5,8 @@ This is an unofficial Latex version of [UHK](https://www.uhk.cz/) thesis templat
 which already provided great start for thesis (thanks!). Unfortunately, some aspects of the template had to be reworked or modified to match it 
 with the official MS Word template styling and all content requirements.
 
+An example of thesis built with this template can be found [here](https://github.com/lukashornych/uhk-bachelor-thesis/blob/master/thesis.pdf).
+
 ## How to start writing
 
 1. install Latex (e.g. [TeX Live](https://www.tug.org/texlive/))
@@ -13,3 +15,7 @@ with the official MS Word template styling and all content requirements.
 4. try to build it with pdfLatex
     - if there is some problem, you have probably installed or configured the TeX or pfdLatex incorrectly 
 5. if success resolve all of the `TODO WRITER:` todos and write your thesis 🙂
+
+## Examples
+
+TODO
