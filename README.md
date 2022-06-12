@@ -136,3 +136,7 @@ Book source:
 	year = {2006}
 }
 ```
+
+## Contributions
+
+Feel free to submit PRs with fixes or new features, but remember, the goal is to make it easy to write theses in Latex without any difficult installation and configuration.
