@@ -240,7 +240,7 @@
  \fi
 }
 
-%Vyber fakulty / faculty selection TODO
+%Vyber fakulty / faculty selection
 \newcommand{\set@faculty}[3]{%
  \naselfalse
  % TODO WRITER: enter name faculty
